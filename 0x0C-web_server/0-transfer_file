@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #checking for the number of args
 
-if [ $# -lt 4 ]
+if [ "$#" -lt 4 ]
 then
         echo "Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
         exit 1
@@ -9,10 +9,10 @@ fi
 
 #assigning the req var
 
-path_to_file=$1
-ip=$2
-username=$3
-path_to_ssh_key=$4
+path_to_file="$1"
+ip="$2"
+username="$3"
+path_to_ssh_key="$4"
 
 #disabling the strict host key
 scp -o "StrictHostKeyChecking=no" -i "$path_to_ssh_key" "$path_To_file" "$username@$ip:~/"
